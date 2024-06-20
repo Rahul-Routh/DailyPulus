@@ -26,11 +26,12 @@ fun AboutScreen(){
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun Toolbar(){
+private fun Toolbar() {
     TopAppBar(
-        title = { Text(text = "About Device")},
+        title = { Text(text = "About Device") }
     )
 }
+
 @Composable
 private fun ContentView(){
     val items =makeItems()
@@ -51,6 +52,7 @@ private fun makeItems(): List<Pair<String,String>> {
         Pair("Density", platform.density.toString())
     )
 }
+
 @Composable
 private fun RowView(
     title: String,
