@@ -1,4 +1,4 @@
-package com.rahul.dailypulus.android
+package com.rahul.dailypulus.android.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -34,7 +34,7 @@ private fun Toolbar() {
 
 @Composable
 private fun ContentView(){
-    val items =makeItems()
+    val items = makeItems()
     LazyColumn(modifier = Modifier.fillMaxSize(),) {
         items(items){row->
             RowView(title = row.first, subTitle = row.second)
