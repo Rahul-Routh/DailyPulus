@@ -20,16 +20,18 @@ class ArticlesViewModel:BaseViewModel(){
     private fun getArticles(){
         scope.launch {
 
+            delay(1500)
+            _articlesState.emit(ArticlesState(error = "Something went wrong"))
+            delay(1500)
+
+
             val fetchedArticles = fetchedArticles()
-
-            delay(500)
-
 
             _articlesState.emit(ArticlesState(articles = fetchedArticles))
         }
     }
 
-    suspend fun fetchedArticles(): List<Article> = mockArticles
+    private suspend fun fetchedArticles(): List<Article> = mockArticles
 
     private val mockArticles = listOf(
         Article("Nifty undertone to stay bullish as long as it holds 23,400'",

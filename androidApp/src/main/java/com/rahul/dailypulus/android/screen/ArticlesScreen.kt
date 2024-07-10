@@ -1,5 +1,6 @@
 package com.rahul.dailypulus.android.screen
 
+import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -10,8 +11,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -31,12 +36,13 @@ import com.rahul.dailypulus.articles.ArticlesViewModel
 
 @Composable
 fun ArticlesScreen(
+    onAboutButtonClick: () -> Unit,
     articlesViewModel: ArticlesViewModel) {
     
     val articlesState = articlesViewModel.articlesState.collectAsState()
 
     Column {
-        AppBar()
+        AppBar(onAboutButtonClick)
         if (articlesState.value.isLoading)
             Loader()
         if (articlesState.value.error != null)
@@ -49,8 +55,18 @@ fun ArticlesScreen(
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
-private fun AppBar(){
-    TopAppBar(title = { Text(text = "Articles")})
+private fun AppBar(
+    onAboutButtonClick: () -> Unit
+){
+    TopAppBar(title = { Text(text = "Articles")},
+        actions = {
+            IconButton(onClick = onAboutButtonClick) {
+                Icon(
+                    imageVector = Icons.Outlined.Info,
+                    contentDescription = "About Device Button"
+                )
+            }
+        })
 }
 
 @Composable
