@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -31,11 +32,11 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.datetime)
-            implementation (libs.koin.core.v312)
+            implementation(libs.koin.core)
 
         }
         androidMain.dependencies {
-            implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            implementation(libs.lifecycle.viewmodel.ktx)
             implementation(libs.ktor.client.android)
         }
         iosMain.dependencies {

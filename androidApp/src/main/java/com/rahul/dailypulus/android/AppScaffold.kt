@@ -9,13 +9,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.rahul.dailypulus.android.screen.AboutScreen
-import com.rahul.dailypulus.android.screen.ArticlesScreen
-import com.rahul.dailypulus.android.screen.Screens
-import com.rahul.dailypulus.articles.ArticlesViewModel
+import com.rahul.dailypulus.android.screens.AboutScreen
+import com.rahul.dailypulus.android.screens.ArticlesScreen
+import com.rahul.dailypulus.android.screens.Screens
 
 @Composable
-fun AppScaffold(articlesViewModel: ArticlesViewModel) {
+fun AppScaffold(/*articlesViewModel: ArticlesViewModel*/) {
     val navController = rememberNavController()
 
     Scaffold{
@@ -24,7 +23,7 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(it),
-            articlesViewModel
+            //articlesViewModel
         )
     }
 }
@@ -33,7 +32,7 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
 fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier,
-    articlesViewModel: ArticlesViewModel
+    /*articlesViewModel: ArticlesViewModel*/
 ) {
     NavHost(
         navController = navController,
@@ -42,8 +41,8 @@ fun AppNavHost(
     ) {
         composable(Screens.ARTICLES.route) {
             ArticlesScreen(
-                onAboutButtonClick = { navController.navigate(Screens.ABOUT_DEVICES.route) },
-                articlesViewModel = articlesViewModel
+                onAboutButtonClick = { navController.navigate(Screens.ABOUT_DEVICES.route) }
+                /*articlesViewModel = articlesViewModel*/
             )
         }
         composable(Screens.ABOUT_DEVICES.route) {

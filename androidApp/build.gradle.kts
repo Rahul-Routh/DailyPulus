@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 android {
@@ -48,4 +49,8 @@ dependencies {
 
     implementation(libs.koin.androidx.compose)
     implementation(libs.koin.android)
+        implementation(libs.lifecycle.viewmodel.ktx) // Use a valid version
+
+    //implementation (libs.koin.androidx.compose.v340)
+
 }

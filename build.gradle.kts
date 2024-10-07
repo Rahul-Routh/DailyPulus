@@ -5,4 +5,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid).apply(false)
     alias(libs.plugins.kotlinMultiplatform).apply(false)
     alias(libs.plugins.compose.compiler).apply(false)
+
+    alias(libs.plugins.kotlinSerialization).apply(false) // Make sure you have this alias defined in your libs.versions.toml
+
 }

@@ -5,14 +5,14 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 
 class ArticlesService(private val httpClient: HttpClient) {
-    private val country = "us"
+    private val userId = "693"
     private val category = "business"
     private val apiKey = "5d829b45864c48918f64f9275e465a0d"
 
-    suspend fun fetchArticles():List<ArticlesDetails>{
+    suspend fun fetchArticles():List<ResultDetails>{
         val response: ArticlesResponse = httpClient.get(
-            "https://newsapi.org/v2/top-headlines?country=$country&category=$category&apiKey=$apiKey").body()
-        return response.articles
+            "https://dev-test-erp.co.in/basic/api_tracker/project/emp_list_mstr_api.php?user_id=$userId").body()
+        return response.resultset
 
     }
 }

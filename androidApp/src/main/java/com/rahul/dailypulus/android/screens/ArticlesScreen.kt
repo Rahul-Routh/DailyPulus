@@ -1,6 +1,5 @@
-package com.rahul.dailypulus.android.screen
+package com.rahul.dailypulus.android.screens
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -33,12 +32,15 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.rahul.dailypulus.articles.Article
 import com.rahul.dailypulus.articles.ArticlesViewModel
+import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun ArticlesScreen(
     onAboutButtonClick: () -> Unit,
-    articlesViewModel: ArticlesViewModel) {
-    
+    articlesViewModel: ArticlesViewModel = getViewModel()
+) {
+
+
     val articlesState = articlesViewModel.articlesState.collectAsState()
 
     Column {

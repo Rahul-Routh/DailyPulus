@@ -1,4 +1,4 @@
-package com.rahul.dailypulus.android.screen
+package com.rahul.dailypulus.android.screens
 
 enum class Screens(val route: String){
     ARTICLES("articles"),
