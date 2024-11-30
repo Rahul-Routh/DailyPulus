@@ -8,4 +8,6 @@ plugins {
 
     alias(libs.plugins.kotlinSerialization).apply(false) // Make sure you have this alias defined in your libs.versions.toml
 
+    alias(libs.plugins.sqldelight).apply(false)
+
 }
