@@ -1,17 +1,13 @@
 package com.rahul.dailypulus.articles
 
 import com.rahul.dailypulus.BaseViewModel
-import io.ktor.client.HttpClient
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.serialization.kotlinx.json.json
-import kotlinx.serialization.json.Json
 
 
-class ArticlesViewModel:BaseViewModel(){
+class ArticlesViewModel(
+    private val usedCase: ArticlesUseCase) :BaseViewModel(){
 
     private val _articlesState : MutableStateFlow<ArticlesState> =
         MutableStateFlow(ArticlesState(isLoading = true))
@@ -19,10 +15,10 @@ class ArticlesViewModel:BaseViewModel(){
 
     val articlesState:StateFlow<ArticlesState>get()  = _articlesState
 
-    private val usedCase:ArticlesUsedCase
+    /*private val usedCase:ArticlesUsedCase*/
 
     init {
-        val httpClient = HttpClient {
+        /*val httpClient = HttpClient {
             install(ContentNegotiation) {
                 json(Json{
                     prettyPrint = true
@@ -33,7 +29,7 @@ class ArticlesViewModel:BaseViewModel(){
         }
         
         val service = ArticlesService(httpClient)
-        usedCase = ArticlesUsedCase(service)
+        usedCase = ArticlesUsedCase(service)*/
         getArticles()
     }
 
